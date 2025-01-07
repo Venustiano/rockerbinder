@@ -1,6 +1,7 @@
 install.packages("data.table")
 install.packages("stringr")
 install.packages("ggplot2")
+install.packages("rJava")
 install.packages("text")
 install.packages("textdata")
 install.packages("cluster")
