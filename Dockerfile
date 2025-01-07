@@ -15,6 +15,13 @@ RUN echo "Checking for 'apt.txt'..." \
         && apt-get clean > /dev/null \
         && rm -rf /var/lib/apt/lists/* \
         ; fi
+
+# Install Python dependencies for PyTorch
+# Ensure pip is upgraded and install PyTorch
+RUN apt-get update && apt-get install -y python3-pip \
+    && python3 -m pip install --no-cache-dir --upgrade pip \
+    && python3 -m pip install torch torchvision torchaudio
+    
 USER ${NB_USER}
 
 ## Run an install.R script, if it exists.
