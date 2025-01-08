@@ -20,7 +20,7 @@ RUN echo "Checking for 'apt.txt'..." \
 # Ensure pip is upgraded and install PyTorch
 RUN apt-get update && apt-get install -y python3-pip \
     && python3 -m pip install --no-cache-dir --upgrade pip \
-    && python3 -m pip install torch torchvision torchaudio
+    && python3 -m pip install torch
     
 USER ${NB_USER}
 
