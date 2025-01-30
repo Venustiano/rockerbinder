@@ -4,6 +4,8 @@ FROM rocker/binder:4.4.2
 ARG NB_USER
 ARG NB_UID
 
+ENV HOME=/home/rstudio
+
 COPY --chown=${NB_USER} . ${HOME}
 
 ENV DEBIAN_FRONTEND=noninteractive
