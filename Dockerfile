@@ -32,10 +32,9 @@ USER ${NB_USER}
 
 # Install Python dependencies for PyTorch
 # Ensure pip is upgraded and install PyTorch
-RUN apt-get update && apt-get install -y python3-pip \
-    && python3 -m pip install --no-cache-dir --upgrade pip \
-    && python3 -m pip install --no-cache-dir \
-        torch huggingface_hub \
+RUN python3 -m pip install --no-cache-dir --upgrade pip \
+        torch \
+        huggingface_hub \
         transformers \
         sentence-transformers \
         numpy \
@@ -43,12 +42,8 @@ RUN apt-get update && apt-get install -y python3-pip \
         pandas \
         matplotlib \
         wordcloud \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install --no-cache-dir nltk && \
-    python -m nltk.downloader punkt && \
-    python -m nltk.downloader punkt_tab
+        nltk \
+    && python -m nltk.downloader punkt
 
 ## Run an install.R script, if it exists.
 RUN if [ -f install.R ]; then R --quiet -f install.R; fi
