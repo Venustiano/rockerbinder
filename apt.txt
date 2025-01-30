@@ -1,1 +1,13 @@
-default-jdk
+    libudunits2-dev
+    default-jdk
+    default-jre
+    r-cran-rjava
+    libpoppler-cpp-dev
+    gdal-bin
+    libgdal-dev
+    libgeos-dev
+    libproj-dev
+    libxml2-dev
+    libcurl4-openssl-dev
+    liblzma-dev
+    zlib1g-dev
