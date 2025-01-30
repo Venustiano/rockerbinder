@@ -27,7 +27,7 @@ ENV LD_LIBRARY_PATH=/usr/lib/jvm/java-21-openjdk-amd64/lib/server:$LD_LIBRARY_PA
 
 # Configure R with Java support
 RUN R CMD javareconf
-
+RUN chown -R ${NB_USER}:${NB_USER} /opt/venv
 USER ${NB_USER}
 
 # Install Python dependencies for PyTorch
@@ -44,6 +44,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip \
         wordcloud \
         nltk \
     && python -m nltk.downloader punkt
+
 
 ## Run an install.R script, if it exists.
 RUN if [ -f install.R ]; then R --quiet -f install.R; fi
